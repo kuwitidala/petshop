@@ -29,17 +29,4 @@ class HomeController extends Controller{
 
         return response()->json($products);
     }
-    public function loadStocks(Request $request)
-    {
-        $offset = $request->offset ?? 0;
-        $limit = $request->limit ?? 5;
-
-        $products = \App\Models\Product::query()
-            ->latest()
-            ->skip($offset)
-            ->take($limit)
-            ->get();
-
-        return response()->json($products);
-    }
 }
